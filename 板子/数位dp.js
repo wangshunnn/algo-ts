@@ -1,12 +1,7 @@
-// 背包
-
-// 完全背包
-
 /**
  * 数位 dp
  * 灵神题解：https://leetcode.cn/problems/count-special-integers/solutions/1746956/shu-wei-dp-mo-ban-by-endlesscheng-xtgx/
- * @param {number} n
- * @return {number}
+ * * LC 2376 233
  */
 var countSpecialNumbers = function (n) {
   const s = "" + n;
