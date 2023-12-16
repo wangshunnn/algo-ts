@@ -1,16 +1,17 @@
 /**
  * * 并查集TS 模板
+ * * LC 765
  */
 class UnionFind {
     private fa: number[] // 每个节点的祖先，初始化为自己
     private size: number[] // 每个连通分量的节点数量
-    private setCount: number // 所有连通分量的个数（可选）
+    private count: number // 所有连通分量的个数
 
     /** 初始化 */
     constructor(n: number) {
         this.fa = new Array(n).fill(-1).map((_, i) => i)
         this.size = new Array(n).fill(1)
-        this.setCount = n
+        this.count = n
     }
 
     /** 查询 */
@@ -37,7 +38,7 @@ class UnionFind {
             this.fa[pa] = pb
             this.size[pb] += this.size[pa]
         }
-        this.setCount-- // 连通分量数减一
+        this.count-- // 连通分量数减一
         return true
     }
 
@@ -49,5 +50,10 @@ class UnionFind {
     /** 查询当前所在联通分量的节点数 */
     getSize(x: number): number {
         return this.size[this.find(x)]
+    }
+
+    /** 查询所有连通分量的个数 */
+    getCount(): number {
+        return this.count
     }
 }
