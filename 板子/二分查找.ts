@@ -3,7 +3,7 @@
 // 要求 nums 是非递减的，即 nums[i] <= nums[i + 1]
 
 // 闭区间写法
-var lowerBound = function (nums, target) {
+function lowerBound(nums: number[], target: number) {
     let left = 0,
         right = nums.length - 1 // 闭区间 [left, right]
     while (left <= right) {
@@ -22,7 +22,7 @@ var lowerBound = function (nums, target) {
 }
 
 // 左闭右开区间写法
-var lowerBound2 = function (nums, target) {
+function lowerBound2(nums: number[], target: number) {
     let left = 0,
         right = nums.length // 左闭右开区间 [left, right)
     while (left < right) {
@@ -41,7 +41,7 @@ var lowerBound2 = function (nums, target) {
 }
 
 // 开区间写法
-var lowerBound3 = function (nums, target) {
+function lowerBound3(nums: number[], target: number) {
     let left = -1,
         right = nums.length // 开区间 (left, right)
     while (left + 1 < right) {
