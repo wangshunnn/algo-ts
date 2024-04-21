@@ -34,8 +34,8 @@ class RangeModule {
  */
 
 class SegNode {
-    ls: SegNode;
-    rs: SegNode;
+    ls!: SegNode;
+    rs!: SegNode;
     val: boolean;
     add: boolean;
 

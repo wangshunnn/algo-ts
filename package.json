@@ -1,8 +1,10 @@
 {
   "name": "my-leetcode",
+  "private": "true",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },

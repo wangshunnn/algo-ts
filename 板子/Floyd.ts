@@ -7,7 +7,6 @@
  * * 灵神讲解：https://leetcode.cn/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/solutions/2525946/dai-ni-fa-ming-floyd-suan-fa-cong-ji-yi-m8s51/
  * * 动态规划推演而来（中间的编号为 k 的节点选或不选）
  * * 翻译递推后核心就是三重循环，优雅，实在太优雅了！
- * * LC 1334
  * 
  */
 function Floyd(n: number, edges: number[][]): number[][] {
@@ -31,6 +30,10 @@ function Floyd(n: number, edges: number[][]): number[][] {
     return f
 }
 
+/**
+ * 应用题
+ *  * LC 1334
+ */
 function findTheCity(
     n: number,
     edges: number[][],
