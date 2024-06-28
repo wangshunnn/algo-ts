@@ -11,7 +11,20 @@
   "scripts": {
     "format": "prettier . --write --cache",
     "format:check": "prettier . --check --cache",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --cache --write"
+    ],
+    "*.ts": [
+      "prettier --cache --write --parser=typescript"
+    ]
   },
   "keywords": [
     "leetcode"
@@ -23,6 +36,8 @@
     "typescript": "^5.5.2"
   },
   "devDependencies": {
-    "prettier": "^3.3.2"
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "simple-git-hooks": "^2.11.1"
   }
 }
