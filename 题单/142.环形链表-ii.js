@@ -18,29 +18,29 @@
  * @return {ListNode}
  */
 var detectCycle = function (head) {
-    let slow = head,
-        fast = head;
+  let slow = head,
+    fast = head
 
-    // 第一次相遇，slow = nb
-    while (fast && fast.next) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (slow === fast) {
-            break;
-        }
+  // 第一次相遇，slow = nb
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
+    if (slow === fast) {
+      break
     }
+  }
 
-    if (!fast || !fast.next) {
-        return null;
-    }
+  if (!fast || !fast.next) {
+    return null
+  }
 
-    // slow 再走 a 步到入口点（a + nb)
-    fast = head;
-    while (fast !== slow) {
-        fast = fast.next;
-        slow = slow.next;
-    }
+  // slow 再走 a 步到入口点（a + nb)
+  fast = head
+  while (fast !== slow) {
+    fast = fast.next
+    slow = slow.next
+  }
 
-    return fast;
-};
+  return fast
+}
 // @lc code=end

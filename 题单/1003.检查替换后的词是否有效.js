@@ -11,16 +11,16 @@
  */
 // ! 栈结构-栈顶匹配（类似括号匹配）
 var isValid = function (s) {
-  const stk = [];
+  const stk = []
   for (let i = 0; i < s.length; i++) {
-    const c = s[i];
-    stk.push(c);
-    if (stk.length >= 3 && stk.slice(stk.length - 3).join("") === "abc") {
-      stk.splice(stk.length - 3, 3);
+    const c = s[i]
+    stk.push(c)
+    if (stk.length >= 3 && stk.slice(stk.length - 3).join('') === 'abc') {
+      stk.splice(stk.length - 3, 3)
     }
   }
-  return stk.length === 0;
-};
+  return stk.length === 0
+}
 // ! 递归-JS 的替换语法
 // var isValid = function (s) {
 //   if (s.length % 3) {

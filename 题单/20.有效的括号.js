@@ -11,29 +11,29 @@
  */
 var isValid = function (s) {
   if (s.length % 2) {
-    return false;
+    return false
   }
 
-  const stack = [];
+  const stack = []
   const pairs = new Map([
-    [")", "("],
-    ["]", "["],
-    ["}", "{"],
-  ]);
+    [')', '('],
+    [']', '['],
+    ['}', '{'],
+  ])
 
   for (const ch of s) {
-    const _ch = pairs.get(ch);
+    const _ch = pairs.get(ch)
     if (_ch) {
       // 右括号出栈
       if (_ch !== stack.pop()) {
-        return false;
+        return false
       }
     } else {
       // 左括号入栈
-      stack.push(ch);
+      stack.push(ch)
     }
   }
 
-  return !stack.length;
-};
+  return !stack.length
+}
 // @lc code=end

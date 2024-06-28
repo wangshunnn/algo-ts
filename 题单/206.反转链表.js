@@ -19,15 +19,15 @@
 // ! 递归 空间复杂度 O(N)
 var reverseList = function (head) {
   if (!head || !head.next) {
-    return head;
+    return head
   }
 
-  const last = reverseList(head.next);
-  head.next.next = head;
-  head.next = null;
+  const last = reverseList(head.next)
+  head.next.next = head
+  head.next = null
 
-  return last;
-};
+  return last
+}
 
 // ! 迭代 空间复杂度 O(1)
 // var reverseList = function (head) {

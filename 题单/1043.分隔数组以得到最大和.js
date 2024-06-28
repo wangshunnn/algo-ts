@@ -12,21 +12,21 @@
  */
 var maxSumAfterPartitioning = function (arr, k) {
   // ! 动态规划
-  const dp = Array(arr.length + 1).fill(0);
+  const dp = Array(arr.length + 1).fill(0)
 
   for (let i = 0; i < arr.length; i++) {
     // 局部最大值
-    let _max = arr[i];
+    let _max = arr[i]
     // 第 i 个数有 k 种划分，取最大值
     for (let j = 1; j <= k; j++) {
       if (i - j + 1 < 0) {
-        break;
+        break
       }
-      _max = Math.max(_max, arr[i - j + 1]);
-      dp[i + 1] = Math.max(dp[i + 1], dp[i - j + 1] + _max * j);
+      _max = Math.max(_max, arr[i - j + 1])
+      dp[i + 1] = Math.max(dp[i + 1], dp[i - j + 1] + _max * j)
     }
   }
 
-  return dp[arr.length];
-};
+  return dp[arr.length]
+}
 // @lc code=end

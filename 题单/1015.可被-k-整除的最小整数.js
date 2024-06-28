@@ -9,8 +9,5 @@
  * @param {number} k
  * @return {number}
  */
-var smallestRepunitDivByK = function(k) {
-
-};
+var smallestRepunitDivByK = function (k) {}
 // @lc code=end
-

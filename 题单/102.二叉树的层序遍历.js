@@ -17,8 +17,5 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
-
-};
+var levelOrder = function (root) {}
 // @lc code=end
-

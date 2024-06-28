@@ -20,11 +20,11 @@
  */
 var getIntersectionNode = function (headA, headB) {
   var p1 = headA,
-    p2 = headB;
+    p2 = headB
   while (p1 != p2) {
-    p1 = p1 === null ? headB : p1.next;
-    p2 = p2 === null ? headA : p2.next;
+    p1 = p1 === null ? headB : p1.next
+    p2 = p2 === null ? headA : p2.next
   }
-  return p1;
-};
+  return p1
+}
 // @lc code=end

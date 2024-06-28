@@ -9,8 +9,5 @@
  * @param {string} text
  * @return {number}
  */
-var longestDecomposition = function(text) {
-
-};
+var longestDecomposition = function (text) {}
 // @lc code=end
-

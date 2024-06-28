@@ -11,27 +11,27 @@
  */
 var lengthOfLIS = function (nums) {
   // ! 自顶向下 记忆化搜索
-  const dp = Array(nums.length).fill(0);
+  const dp = Array(nums.length).fill(0)
 
   function dfs(i) {
     if (dp[i]) {
-      return dp[i];
+      return dp[i]
     }
-    let res = 1;
+    let res = 1
     for (let j = i - 1; j >= 0; j--) {
       if (nums[j] < nums[i]) {
-        res = Math.max(res, dfs(j) + 1);
+        res = Math.max(res, dfs(j) + 1)
       }
     }
-    dp[i] = res;
-    return res;
+    dp[i] = res
+    return res
   }
 
-  let res = 0;
+  let res = 0
   for (let i = nums.length - 1; i >= 0; i--) {
-    res = Math.max(res, dfs(i));
+    res = Math.max(res, dfs(i))
   }
-  return res;
+  return res
 
   // ! 自底向上 地推
   // const dp = Array(nums.length).fill(1);
@@ -45,5 +45,5 @@ var lengthOfLIS = function (nums) {
   //   res = Math.max(res, dp[i]);
   // }
   // return res;
-};
+}
 // @lc code=end

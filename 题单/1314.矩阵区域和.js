@@ -11,12 +11,12 @@
  * @return {number[][]}
  */
 var matrixBlockSum = function (mat, k) {
-  const [row, col] = [mat.length, mat[0].length];
+  const [row, col] = [mat.length, mat[0].length]
 
   // !! 不能用 Array(row + 1).fill(Array(col + 1).fill(0)) 因为这是引用浅拷贝
   const matSum = Array(row + 1)
     .fill(0)
-    .map(() => Array(col + 1).fill(0));
+    .map(() => Array(col + 1).fill(0))
 
   // 计算前缀和矩阵
   for (let x = 1; x <= row; x++) {
@@ -25,7 +25,7 @@ var matrixBlockSum = function (mat, k) {
         matSum[x - 1][y] +
         matSum[x][y - 1] -
         matSum[x - 1][y - 1] +
-        mat[x - 1][y - 1];
+        mat[x - 1][y - 1]
     }
   }
 
@@ -36,12 +36,12 @@ var matrixBlockSum = function (mat, k) {
       matSum[x1][y2 + 1] -
       matSum[x2 + 1][y1] +
       matSum[x1][y1]
-    );
+    )
   }
 
   const resMatSum = Array(row)
     .fill(0)
-    .map(() => Array(col).fill(0));
+    .map(() => Array(col).fill(0))
 
   for (let x = 0; x < row; x++) {
     for (let y = 0; y < col; y++) {
@@ -49,12 +49,12 @@ var matrixBlockSum = function (mat, k) {
         x - k < 0 ? 0 : x - k,
         y - k < 0 ? 0 : y - k,
         x + k > row - 1 ? row - 1 : x + k,
-        y + k > col - 1 ? col - 1 : y + k
-      );
+        y + k > col - 1 ? col - 1 : y + k,
+      )
     }
   }
 
-  return resMatSum;
-};
+  return resMatSum
+}
 
 // @lc code=end

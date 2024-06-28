@@ -3,12 +3,14 @@
   "private": "true",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "packageManager": "pnpm@9.4.0",
   "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "format": "prettier . --write --cache",
+    "format:check": "prettier . --check --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,9 +20,9 @@
   "license": "ISC",
   "dependencies": {
     "@datastructures-js/priority-queue": "5.3.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.2"
   },
   "devDependencies": {
-    "tsc": "^2.0.4"
+    "prettier": "^3.3.2"
   }
 }

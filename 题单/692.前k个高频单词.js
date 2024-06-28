@@ -10,8 +10,5 @@
  * @param {number} k
  * @return {string[]}
  */
-var topKFrequent = function(words, k) {
-
-};
+var topKFrequent = function (words, k) {}
 // @lc code=end
-

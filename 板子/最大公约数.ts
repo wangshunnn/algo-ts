@@ -5,17 +5,17 @@
 
 // 递归
 function gcd(a: number, b: number): number {
-    if (b === 0) {
-        return a
-    } else {
-        return gcd(b, a % b)
-    }
+  if (b === 0) {
+    return a
+  } else {
+    return gcd(b, a % b)
+  }
 }
 
 // 迭代
 function gcd(a: number, b: number): number {
-    while (b !== 0) {
-        ;[a, b] = [b, a % b]
-    }
-    return a
+  while (b !== 0) {
+    ;[a, b] = [b, a % b]
+  }
+  return a
 }

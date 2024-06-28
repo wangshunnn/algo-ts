@@ -11,8 +11,8 @@
  */
 var isPalindrome = function (x) {
   if (x < 0) {
-    return false;
+    return false
   }
-  return Number((x + "").split("").reverse().join("")) === x;
-};
+  return Number((x + '').split('').reverse().join('')) === x
+}
 // @lc code=end

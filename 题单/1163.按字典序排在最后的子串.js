@@ -13,23 +13,23 @@ var lastSubstring = function (s) {
   // ! 双指针 + 后缀子串
   let i = 0,
     j = 1,
-    k = 0;
+    k = 0
 
   while (j + k < s.length) {
     if (s[i + k] === s[j + k]) {
-      k++;
+      k++
     } else if (s[i + k] < s[j + k]) {
-      i = i + k + 1;
-      k = 0;
+      i = i + k + 1
+      k = 0
       if (i >= j) {
-        j = i + 1;
+        j = i + 1
       }
     } else {
-      j = j + k + 1;
-      k = 0;
+      j = j + k + 1
+      k = 0
     }
   }
 
-  return s.slice(i);
-};
+  return s.slice(i)
+}
 // @lc code=end

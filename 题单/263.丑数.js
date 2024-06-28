@@ -9,8 +9,5 @@
  * @param {number} n
  * @return {boolean}
  */
-var isUgly = function(n) {
-
-};
+var isUgly = function (n) {}
 // @lc code=end
-

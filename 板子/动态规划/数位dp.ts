@@ -20,7 +20,7 @@ function countSpecialNumbers(n: number): number {
     i: number,
     mask: number,
     isLimit: boolean,
-    isNum: boolean
+    isNum: boolean,
   ): number {
     if (i === len) {
       return isNum ? 1 : 0

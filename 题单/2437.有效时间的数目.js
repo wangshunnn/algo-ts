@@ -9,8 +9,5 @@
  * @param {string} time
  * @return {number}
  */
-var countTime = function(time) {
-
-};
+var countTime = function (time) {}
 // @lc code=end
-

@@ -20,47 +20,47 @@
  */
 var reverseBetween = function (head, left, right) {
   // 因为头节点有可能发生变化，使用虚拟头节点可以避免复杂的分类讨论
-  const dummyNode = new ListNode(-1);
-  dummyNode.next = head;
+  const dummyNode = new ListNode(-1)
+  dummyNode.next = head
 
-  let pre = dummyNode;
+  let pre = dummyNode
   for (let i = 0; i < left - 1; i++) {
-    pre = pre.next;
+    pre = pre.next
   }
 
-  let rightNode = pre;
+  let rightNode = pre
   for (let i = 0; i < right - left + 1; i++) {
-    rightNode = rightNode.next;
+    rightNode = rightNode.next
   }
 
   // 切断出一个子链表
-  let leftNode = pre.next;
-  let curr = rightNode.next;
+  let leftNode = pre.next
+  let curr = rightNode.next
 
   // 切断链接
-  rightNode.next = null;
+  rightNode.next = null
 
   // 第 4 步：同第 206 题，反转链表的子区间，接回到原来的链表中
-  pre.next = reverseList(leftNode); // leftNode 翻转后的尾结点
-  leftNode.next = curr;
+  pre.next = reverseList(leftNode) // leftNode 翻转后的尾结点
+  leftNode.next = curr
 
-  return dummyNode.next;
-};
+  return dummyNode.next
+}
 
 // 返回翻转后的首节点，head 会变为尾结点
-const reverseList = (head) => {
-  let cur = head;
-  let pre = null;
+const reverseList = head => {
+  let cur = head
+  let pre = null
 
   while (cur) {
-    const next = cur.next;
-    cur.next = pre;
-    pre = cur;
-    cur = next;
+    const next = cur.next
+    cur.next = pre
+    pre = cur
+    cur = next
   }
 
-  return pre;
-};
+  return pre
+}
 // var reverseBetween = function (head, left, right) {
 //   // base case: 如果m为1，则相当于反转前n个节点
 //   if (left == 1) {

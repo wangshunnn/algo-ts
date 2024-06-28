@@ -18,25 +18,25 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function (head, n) {
-  let dummy = new ListNode(0);
-  dummy.next = head;
-  let x = findFromEnd(dummy, n + 1);
-  x.next = x.next.next;
+  let dummy = new ListNode(0)
+  dummy.next = head
+  let x = findFromEnd(dummy, n + 1)
+  x.next = x.next.next
 
-  return dummy.next;
-};
+  return dummy.next
+}
 
 function findFromEnd(head, k) {
-  let fast = head;
+  let fast = head
   for (let i = 0; i < k; i++) {
-    fast = fast.next;
+    fast = fast.next
   }
-  let slow = head;
+  let slow = head
   while (fast) {
-    fast = fast.next;
-    slow = slow.next;
+    fast = fast.next
+    slow = slow.next
   }
 
-  return slow;
+  return slow
 }
 // @lc code=end

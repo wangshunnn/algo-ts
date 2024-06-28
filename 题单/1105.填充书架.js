@@ -12,34 +12,34 @@
  */
 // ! 动态规划：记忆化搜索
 var minHeightShelves = function (books, shelfWidth) {
-  const memo = new Map();
+  const memo = new Map()
 
   function dfs(i) {
     if (i < 0) {
-      return 0;
+      return 0
     }
 
     if (memo.get(i)) {
-      return memo.get(i);
+      return memo.get(i)
     }
 
-    let w = 0;
-    let h = 0;
-    let res = Infinity;
+    let w = 0
+    let h = 0
+    let res = Infinity
 
     for (let j = i; j >= 0; j--) {
       if (w + books[j][0] > shelfWidth) {
-        break;
+        break
       }
-      w += books[j][0];
-      h = Math.max(h, books[j][1]);
-      res = Math.min(res, h + dfs(j - 1));
+      w += books[j][0]
+      h = Math.max(h, books[j][1])
+      res = Math.min(res, h + dfs(j - 1))
     }
 
-    memo.set(i, res);
-    return res;
+    memo.set(i, res)
+    return res
   }
-  
-  return dfs(books.length - 1);
-};
+
+  return dfs(books.length - 1)
+}
 // @lc code=end

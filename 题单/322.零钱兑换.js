@@ -47,18 +47,18 @@ var coinChange = function (coins, amount) {
 
   // ! dp 数组迭代 递归->递推
   // ! 此题和记忆化搜索的复杂度一致，时间复杂度 O(K*N)，空间复杂度O(N)
-  const dp = Array(amount + 1).fill(Infinity);
-  dp[0] = 0;
+  const dp = Array(amount + 1).fill(Infinity)
+  dp[0] = 0
 
   for (let i = 1; i <= amount; i++) {
     for (const coin of coins) {
       if (i - coin < 0) {
-        continue;
+        continue
       }
-      dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+      dp[i] = Math.min(dp[i], dp[i - coin] + 1)
     }
   }
 
-  return dp[amount] === Infinity ? -1 : dp[amount];
-};
+  return dp[amount] === Infinity ? -1 : dp[amount]
+}
 // @lc code=end

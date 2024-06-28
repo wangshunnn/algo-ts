@@ -10,8 +10,5 @@
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function(nums, target) {
-
-};
+var fourSum = function (nums, target) {}
 // @lc code=end
-

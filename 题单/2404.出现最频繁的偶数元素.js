@@ -9,8 +9,5 @@
  * @param {number[]} nums
  * @return {number}
  */
-var mostFrequentEven = function(nums) {
-
-};
+var mostFrequentEven = function (nums) {}
 // @lc code=end
-

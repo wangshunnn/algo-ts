@@ -17,20 +17,20 @@
  * @return {number[]}
  */
 var nextLargerNodes = function (head) {
-  const ans = [];
-  const stack = [];
+  const ans = []
+  const stack = []
 
   while (head) {
     while (stack.length && stack[stack.length - 1][0] < head.val) {
-      const pop = stack.pop();
-      ans[pop[1]] = head.val;
+      const pop = stack.pop()
+      ans[pop[1]] = head.val
     }
-    stack.push([head.val, ans.length]);
-    ans.push(0);
-    head = head.next;
+    stack.push([head.val, ans.length])
+    ans.push(0)
+    head = head.next
   }
 
-  return ans;
-};
+  return ans
+}
 // @lc code=end
 6666666
