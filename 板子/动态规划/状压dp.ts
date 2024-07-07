@@ -13,8 +13,10 @@ function countArrangement(n: number): number {
     if (memo[s] !== -1) {
       return memo[s]
     }
+
     let res = 0
     const i = bitCount32(s) + 1
+
     for (let j = 1; j <= n; j++) {
       if (((s >> (j - 1)) & 1) === 0 && (i % j === 0 || j % i === 0)) {
         res += dfs(s | (1 << (j - 1)))
@@ -24,6 +26,7 @@ function countArrangement(n: number): number {
     return res
   }
 
+  // 位运算仅支持 32 位
   function bitCount32(n: number) {
     let ans = 0
     while (n) {
@@ -31,6 +34,11 @@ function countArrangement(n: number): number {
       ans++
     }
     return ans
+  }
+
+  // 字符串不限 32 位
+  function bitCount(num: number) {
+    return [...num.toString(2)].filter(Number).length
   }
 
   return dfs(0)
