@@ -12,6 +12,10 @@ function gcd(a: number, b: number): number {
   }
 }
 
+function gcd(a: number, b: number): number {
+  return b ? gcd(b, a % b) : a
+}
+
 // 迭代
 function gcd(a: number, b: number): number {
   while (b !== 0) {
