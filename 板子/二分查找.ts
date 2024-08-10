@@ -7,7 +7,6 @@ function lowerBound(nums: number[], target: number) {
   let left = 0,
     right = nums.length - 1 // 闭区间 [left, right]
   while (left <= right) {
-    // 区间不为空
     // 循环不变量：
     // nums[left-1] < target
     // nums[right+1] >= target
@@ -18,6 +17,7 @@ function lowerBound(nums: number[], target: number) {
       right = mid - 1 // 范围缩小到 [left, mid-1]
     }
   }
+  // 注意实战中可能需要判断 left 是否有效 (left < nums.length)
   return left // 或者 right+1
 }
 
@@ -26,7 +26,6 @@ function lowerBound2(nums: number[], target: number) {
   let left = 0,
     right = nums.length // 左闭右开区间 [left, right)
   while (left < right) {
-    // 区间不为空
     // 循环不变量：
     // nums[left-1] < target
     // nums[right] >= target
@@ -45,7 +44,6 @@ function lowerBound3(nums: number[], target: number) {
   let left = -1,
     right = nums.length // 开区间 (left, right)
   while (left + 1 < right) {
-    // 区间不为空
     // 循环不变量：
     // nums[left] < target
     // nums[right] >= target
