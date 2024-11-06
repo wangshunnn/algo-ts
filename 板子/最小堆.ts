@@ -35,14 +35,26 @@ minPQ.clear()
  * * 手动式实现优先队列，基于堆实现
  */
 class Heap<T> {
-  private heap: T[]
-  private readonly compare: (a: number, b: number) => boolean
+  private _heap: T[]
+  private readonly _compare: (a: number, b: number) => boolean
 
   // 默认最小堆
   constructor({ compare = (a: T, b: T) => a > b } = {}) {
-    this.heap = []
-    this.compare = (index1: number, index2: number) =>
-      compare(this.heap[index1], this.heap[index2])
+    this._heap = []
+    this._compare = (index1: number, index2: number) =>
+      compare(this._heap[index1], this._heap[index2])
+  }
+
+  size() {
+    return this._heap.length
+  }
+
+  peek() {
+    return this._heap[0]
+  }
+
+  isEmpty() {
+    return this.size() === 0
   }
 
   getParentIndex(i: number) {
@@ -57,60 +69,45 @@ class Heap<T> {
     return 2 * i + 2
   }
 
-  swap(index1: number, index2: number) {
-    ;[this.heap[index1], this.heap[index2]] = [
-      this.heap[index2],
-      this.heap[index1],
+  private swap(index1: number, index2: number) {
+    ;[this._heap[index1], this._heap[index2]] = [
+      this._heap[index2],
+      this._heap[index1],
     ]
   }
 
-  size() {
-    return this.heap.length
-  }
-
-  peek() {
-    return this.heap[0]
-  }
-
-  isEmpty() {
-    return this.size() === 0
-  }
-
-  heapifyUp(index: number) {
-    // 上浮
-    if (index === 0) {
-      return false
-    }
-
-    const parentIndex = this.getParentIndex(index)
-
-    if (this.compare(parentIndex, index)) {
-      this.swap(index, parentIndex)
-      this.heapifyUp(parentIndex)
-    }
-  }
-
-  heapifyDown(index: number) {
-    // 下沉
+  // 下沉
+  private heapifyDown(index: number) {
     const leftIndex = this.getLeftChildIndex(index)
     const rightIndex = this.getRightChildIndex(index)
     let findIndex = index
-    if (leftIndex < this.size() && this.compare(findIndex, leftIndex)) {
+    if (leftIndex < this.size() && this._compare(findIndex, leftIndex)) {
       findIndex = leftIndex
     }
-    if (rightIndex < this.size() && this.compare(findIndex, rightIndex)) {
+    if (rightIndex < this.size() && this._compare(findIndex, rightIndex)) {
       findIndex = rightIndex
     }
-
     if (findIndex !== index) {
       this.swap(findIndex, index)
       this.heapifyDown(findIndex)
     }
   }
 
+  // 上浮
+  private heapifyUp(index: number) {
+    if (index === 0) {
+      return false
+    }
+    const parentIndex = this.getParentIndex(index)
+    if (this._compare(parentIndex, index)) {
+      this.swap(index, parentIndex)
+      this.heapifyUp(parentIndex)
+    }
+  }
+
   insert(value: T) {
-    this.heap.push(value)
-    this.heapifyUp(this.heap.length - 1)
+    this._heap.push(value)
+    this.heapifyUp(this._heap.length - 1)
   }
 
   pop() {
@@ -118,7 +115,7 @@ class Heap<T> {
       return null
     }
     this.swap(0, this.size() - 1)
-    const popValue = this.heap.pop()
+    const popValue = this._heap.pop()
     this.heapifyDown(0)
     return popValue
   }
