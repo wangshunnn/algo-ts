@@ -8,7 +8,7 @@
  * - add/delete: O(logn) + O(n)
  * - size: O(1)
  */
-class OrderedSet {
+class TreeSet {
   private items: number[] = []
 
   /**
