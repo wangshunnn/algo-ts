@@ -58,9 +58,9 @@ function lowerBound3(nums: number[], target: number) {
 }
 
 var searchRange = function (nums: number[], target: number) {
-  const start = lowerBound(nums, target) // 选择其中一种写法即可
+  const start = lowerBound1(nums, target) // 选择其中一种写法即可
   if (start === nums.length || nums[start] !== target) return [-1, -1]
   // 如果 start 存在，那么 end 必定存在
-  const end = lowerBound(nums, target + 1) - 1
+  const end = lowerBound1(nums, target + 1) - 1
   return [start, end]
 }
