@@ -9,7 +9,7 @@
  * 算法讲解
  * - https://www.zhihu.com/question/21923021
  */
-function strStr(haystack: string, needle: string): number {
+function strStr(haystack: string, needle: string): number | number[] {
   const n = haystack.length
   const m = needle.length
 
@@ -30,6 +30,8 @@ function strStr(haystack: string, needle: string): number {
     pi[i] = j
   }
 
+  const ans = []
+
   // 「主串」匹配
   for (let i = 0, j = 0; i < n; i++) {
     while (j > 0 && haystack[i] !== needle[j]) {
@@ -39,10 +41,12 @@ function strStr(haystack: string, needle: string): number {
       j++
     }
     if (j === m) {
-      return i - m + 1
+      // return i - m + 1 // 1. 返回第一个匹配位置
+      ans.push(i - m + 1) // 2. 返回所有匹配位置
     }
   }
-  return -1
+
+  return ans.length > 0 ? ans : -1 // 如果匹配不到，返回 -1
 }
 
 /**
