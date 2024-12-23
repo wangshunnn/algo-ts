@@ -17,18 +17,22 @@ function strStr(haystack: string, needle: string): number | number[] {
     return 0
   }
 
-  const pi = new Array(m).fill(0)
-
-  // KMP 精髓，计算「模式串」的前缀函数（π 数组，或称 next 数组）
-  for (let i = 1, j = 0; i < m; i++) {
-    while (j > 0 && needle[i] !== needle[j]) {
-      j = pi[j - 1]
+  // 计算「模式串」的前缀函数（π 数组，或称 next 数组）
+  function getPiFunc(s: string) {
+    const m = s.length
+    const pi = new Array(m).fill(0)
+    for (let i = 1, j = 0; i < m; i++) {
+      while (j > 0 && s[i] !== s[j]) {
+        j = pi[j - 1]
+      }
+      if (s[i] === s[j]) {
+        j++
+      }
     }
-    if (needle[i] === needle[j]) {
-      j++
-    }
-    pi[i] = j
+    return pi
   }
+
+  const pi = getPiFunc(needle)
 
   const ans = []
 
