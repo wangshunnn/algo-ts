@@ -9,18 +9,19 @@
  * 算法讲解
  * - https://www.zhihu.com/question/21923021
  */
-function strStr(haystack: string, needle: string): number | number[] {
+
+function strStr(haystack: string | number[], needle: string | number[]): number[] {
   const n = haystack.length
   const m = needle.length
 
   if (m === 0) {
-    return 0
+    return [] // 注意根据题意区分：如果模式串为空，返回位置 0 还是 -1 还是 空数组
   }
 
   // 计算「模式串」的前缀函数（π 数组，或称 next 数组）
-  function getPiFunc(s: string) {
+  function getPiFunc(s: string | number[]): number[] {
     const m = s.length
-    const pi = new Array(m).fill(0)
+    const pi: number[] = new Array(m).fill(0)
     for (let i = 1, j = 0; i < m; i++) {
       while (j > 0 && s[i] !== s[j]) {
         j = pi[j - 1]
@@ -34,7 +35,6 @@ function strStr(haystack: string, needle: string): number | number[] {
   }
 
   const pi = getPiFunc(needle)
-
   const ans = []
 
   // 「主串」匹配
@@ -51,7 +51,7 @@ function strStr(haystack: string, needle: string): number | number[] {
     }
   }
 
-  return ans.length > 0 ? ans : -1 // 如果匹配不到，返回 -1
+  return ans // 如果匹配不到，可以自定义返回 -1
 }
 
 /**
