@@ -28,6 +28,7 @@ function strStr(haystack: string, needle: string): number | number[] {
       if (s[i] === s[j]) {
         j++
       }
+      pi[i] = j
     }
     return pi
   }
