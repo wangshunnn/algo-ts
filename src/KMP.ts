@@ -1,16 +1,16 @@
 /**
  * KMP 算法
- * 时间复杂度：O(n + m)，我们至多需要遍历两字符串一次
- * 空间复杂度：O(m)，我们只需要保存字符串 needle 的前缀函数
+ * 时间复杂度：O(n + m)，我们至多需要遍历「主串」和「模式串」一次
+ * 空间复杂度：O(m)，我们只需要保存「模式串」的前缀函数
  *
- * LeetCode 28. 实现 strStr()
+ * LeetCode 28. 模板题：实现 strStr()
  * https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
  *
- * 算法讲解
+ * 算法讲解参考：
  * - https://www.zhihu.com/question/21923021
  */
 
-function strStr(haystack: string | number[], needle: string | number[]): number[] {
+function strStr(haystack: string | number[], needle: string | number[]) {
   const n = haystack.length
   const m = needle.length
 

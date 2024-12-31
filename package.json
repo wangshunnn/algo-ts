@@ -1,17 +1,11 @@
 {
   "name": "my-leetcode",
   "private": "true",
-  "version": "1.0.0",
-  "description": "",
   "packageManager": "pnpm@9.15.0",
   "type": "module",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "format": "prettier . --write --cache",
-    "format:check": "prettier . --check --cache",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier src --write",
+    "format:check": "prettier src --check",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks"
   },

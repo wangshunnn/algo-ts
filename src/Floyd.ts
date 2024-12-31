@@ -34,11 +34,7 @@ function Floyd(n: number, edges: number[][]): number[][] {
  * 应用题
  *  * LC 1334
  */
-function findTheCity(
-  n: number,
-  edges: number[][],
-  distanceThreshold: number,
-): number {
+function findTheCity(n: number, edges: number[][], distanceThreshold: number): number {
   // Floyd 求最短路
   const f = Floyd(n, edges)
 

@@ -52,14 +52,7 @@ class SegmentTree {
     this.root = new SegNode()
   }
 
-  update(
-    node: SegNode,
-    lc: number,
-    rc: number,
-    l: number,
-    r: number,
-    v: boolean,
-  ): void {
+  update(node: SegNode, lc: number, rc: number, l: number, r: number, v: boolean): void {
     if (l <= lc && rc <= r) {
       node.val = v
       node.add = true

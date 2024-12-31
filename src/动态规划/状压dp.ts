@@ -51,9 +51,7 @@ function countArrangement(n: number): number {
 function specialPerm(nums: number[]): number {
   const mod: number = 1e9 + 7
   const n: number = nums.length
-  const f: number[][] = new Array(1 << n)
-    .fill([])
-    .map(() => new Array(n).fill(-1))
+  const f: number[][] = new Array(1 << n).fill([]).map(() => new Array(n).fill(-1))
 
   const dfs = (state: number, i: number): number => {
     if (f[state][i] !== -1) {

@@ -16,12 +16,7 @@ function countSpecialNumbers(n: number): number {
    * @param isNum isNum 表示 i 前面的数位是否填了数字。若为假，则当前位可以跳过（不填数字），或者要填入的数字至少为 1；若为真，则要填入的数字可以从 0 开始。
    * @returns
    */
-  function dfs(
-    i: number,
-    mask: number,
-    isLimit: boolean,
-    isNum: boolean,
-  ): number {
+  function dfs(i: number, mask: number, isLimit: boolean, isNum: boolean): number {
     if (i === len) {
       return isNum ? 1 : 0
     }

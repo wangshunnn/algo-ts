@@ -41,8 +41,7 @@ class Heap<T> {
   // 默认最小堆
   constructor({ compare = (a: T, b: T) => a > b } = {}) {
     this._heap = []
-    this._compare = (index1: number, index2: number) =>
-      compare(this._heap[index1], this._heap[index2])
+    this._compare = (index1: number, index2: number) => compare(this._heap[index1], this._heap[index2])
   }
 
   size() {
@@ -70,10 +69,7 @@ class Heap<T> {
   }
 
   private swap(index1: number, index2: number) {
-    ;[this._heap[index1], this._heap[index2]] = [
-      this._heap[index2],
-      this._heap[index1],
-    ]
+    ;[this._heap[index1], this._heap[index2]] = [this._heap[index2], this._heap[index1]]
   }
 
   // 下沉

@@ -48,10 +48,7 @@ function findAnswer(n: number, edges: number[][]): boolean[] {
   for (const id in edges) {
     const [u, v, w] = edges[id]
     // 可达性分析
-    if (
-      dist1[u] + w + dist2[v] === dist1[n - 1] ||
-      dist1[v] + w + dist2[u] === dist1[n - 1]
-    ) {
+    if (dist1[u] + w + dist2[v] === dist1[n - 1] || dist1[v] + w + dist2[u] === dist1[n - 1]) {
       ans[id] = true
     }
   }
