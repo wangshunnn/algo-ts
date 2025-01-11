@@ -7,13 +7,12 @@
 
 // **** 构造初始化
 // * 最小堆
-// @ts-nocheck
 const minPQ = new PriorityQueue({ compare: (a: number, b: number) => a - b })
 // * 最大堆
 const maxPQ = new PriorityQueue({ compare: (a: number, b: number) => b - a })
 // *** 方法属性
 // * 入堆，O(log(n))，没有返回值，O(log(n))
-minPQ.enqueue(item)
+minPQ.enqueue(123)
 // * 出堆，弹出堆首（最小），O(log(n))
 const min = minPQ.dequeue()
 // * 获取堆首，不弹出（最小）

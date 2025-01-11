@@ -4,6 +4,8 @@
   "packageManager": "pnpm@9.15.0",
   "type": "module",
   "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
     "format": "prettier src --write",
     "format:check": "prettier src --check",
     "preinstall": "npx only-allow pnpm",
@@ -14,9 +16,11 @@
   },
   "lint-staged": {
     "*.{js,json}": [
+      "eslint --fix",
       "prettier --cache --write"
     ],
     "*.ts": [
+      "eslint --fix",
       "prettier --cache --write --parser=typescript"
     ]
   },
@@ -30,8 +34,12 @@
     "typescript": "^5.5.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
-    "simple-git-hooks": "^2.11.1"
+    "simple-git-hooks": "^2.11.1",
+    "typescript-eslint": "^8.19.1"
   }
 }

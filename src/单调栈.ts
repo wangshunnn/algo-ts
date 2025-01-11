@@ -22,7 +22,7 @@ function secondGreaterElement(nums: number[]): number[] {
       const idx = t.pop()
       ans[idx!] = x
     }
-    let tmp: number[] = []
+    const tmp: number[] = []
     while (s.length > 0 && nums[s[s.length - 1]] < x) {
       tmp.push(s.pop()!)
     }

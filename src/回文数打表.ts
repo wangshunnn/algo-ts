@@ -7,7 +7,7 @@
 
 function findAllPalindromic(U: number = 1): number[] {
   const ans: number[] = []
-  let offset = U >> 1
+  const offset = U >> 1
   let base = 1
   while (base <= 10 ** offset) {
     if (!(!(U & 1) && base === 10 ** offset)) {

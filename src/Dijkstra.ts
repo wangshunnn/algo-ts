@@ -10,8 +10,9 @@
 function dijkstra(g: number[][][], start: number): number[] {
   const distance: number[] = new Array(g.length).fill(Infinity)
   distance[start] = 0
-  // @ts-ignore
-  const queue = new PriorityQueue({ compare: (a, b) => a.wight - b.wight })
+  const queue = new PriorityQueue({
+    compare: (a: { node: number; wight: number }, b: { node: number; wight: number }) => a.wight - b.wight,
+  })
   queue.enqueue({ node: start, wight: 0 })
   while (!queue.isEmpty()) {
     const { node, wight } = queue.dequeue()
@@ -41,7 +42,7 @@ function findAnswer(n: number, edges: number[][]): boolean[] {
   }
   const dist1 = dijkstra(g, 0)
   const dist2 = dijkstra(g, n - 1)
-  let ans: boolean[] = new Array(edges.length).fill(false)
+  const ans: boolean[] = new Array(edges.length).fill(false)
   if (dist1[n - 1] === Infinity) {
     return ans
   }

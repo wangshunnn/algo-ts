@@ -23,10 +23,10 @@ declare class PriorityQueue<T> {
   constructor(options?: PriorityQueueOptions<T>)
   size(): number
   isEmpty(): boolean
-  front(): PriorityQueueItem<T> | T
-  back(): PriorityQueueItem<T> | T
+  front(): T
+  back(): T
   enqueue(element: T, priority?: number): PriorityQueue<T>
-  dequeue(): PriorityQueueItem<T> | T
-  toArray(): (PriorityQueueItem<T> | T)[]
+  dequeue(): T
+  toArray(): T[]
   clear(): void
 }

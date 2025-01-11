@@ -19,7 +19,7 @@ function canSortArray(nums: number[]): boolean {
   let i = 0
   while (i < n) {
     let max = nums[i]
-    let k = cnt[i]
+    const k = cnt[i]
     while (i < n && cnt[i] === k) {
       if (nums[i] < max_last) {
         return false
