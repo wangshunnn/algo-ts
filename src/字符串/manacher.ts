@@ -3,14 +3,18 @@
  *
  * 总结思想：和 KMP、Z 函数 其实都是利用前面遍历时的先验信息，来减枝降低时间复杂度
  *
+ * - 1. 返回填充 # 特殊字符后每个位置为中心点的回文半径
+ * - 2. 返回最长回文字串（长度）
+ * - 3. 其他变形场景应用
+ *
  * - 时间复杂度：O(n)
  * - 空间复杂度：O(n)
  */
 
-function longestPalindrome(s: string): string {
+function longestPalindrome(s: string) {
   s = '#' + [...s].join('#') + '#'
-  let start = 0,
-    end = 1
+  let start = 0
+  let end = 1
   let right = -1
   let j = -1
   const f: number[] = []
@@ -31,6 +35,7 @@ function longestPalindrome(s: string): string {
       j = i
       right = i + curArmLen
     }
+    // 更新最长回文字串长度，如果不需要可以去掉
     if (2 * curArmLen + 1 > end - start) {
       start = i - curArmLen + 1
       end = i + curArmLen
@@ -42,11 +47,15 @@ function longestPalindrome(s: string): string {
       i--
       j++
     }
-    return Math.floor((j - i) / 2) - 1
+    return ((j - i) >> 1) - 1
   }
 
-  return [...s]
-    .slice(start, end)
-    .filter(v => v !== '#')
-    .join('')
+  // 返回每个中心点的回文半径（不包含中心，注意包含 '#'）
+  // f[i] >> 1 表示原字符串中的半径，注意奇偶数的中心点差异
+  return f
+  // 返回最长回文字串长度，如果不需要可以去掉
+  // return [...s]
+  //   .slice(start, end)
+  //   .filter(v => v !== '#')
+  //   .join('')
 }
