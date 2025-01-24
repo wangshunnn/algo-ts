@@ -13,16 +13,19 @@
 
 function longestPalindrome(s: string) {
   s = '#' + [...s].join('#') + '#'
-  let start = 0
-  let end = 1
+  // let start = 0
+  // let end = 1
   let right = -1
   let j = -1
   const f: number[] = []
 
+  // 最长回文字串长度的前缀数组（后缀数组将 s 反转再马拉车即可）
+  // const pre: number[] = new Array(s.length).fill(0)
+
   for (let i = 0; i < s.length; i++) {
     let curArmLen: number
     if (i <= right) {
-      // 左侧的对称点，中心点 j，右侧 i, 所以左侧是 j-(i-j)=2*j-i
+      // 左侧的对称点 id，当前最长的中心点 j，右侧 i, 所以左侧是 j-(i-j)=2*j-i
       const id = 2 * j - i
       // f[id]: 左侧对称点的回文半径
       const armLen = Math.min(f[id], right - i)
@@ -36,14 +39,15 @@ function longestPalindrome(s: string) {
       right = i + curArmLen
     }
     // 更新最长回文字串长度，如果不需要可以去掉
-    if (2 * curArmLen + 1 > end - start) {
-      start = i - curArmLen + 1
-      end = i + curArmLen
-    }
+    // if (2 * curArmLen + 1 > end - start) {
+    //   start = i - curArmLen + 1
+    //   end = i + curArmLen
+    // }
   }
 
   function expand(s: string, i: number, j: number): number {
     while (i >= 0 && j < s.length && s[i] === s[j]) {
+      // pre[j] = Math.max(pre[j], pre[j - 1] || 0, j - i + 1)
       i--
       j++
     }
