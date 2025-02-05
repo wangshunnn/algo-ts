@@ -20,8 +20,7 @@ function strStrHash(haystack: string, needle: string): number {
   if (n < m) return -1
 
   const base = 256 // 字符范围基数（ASCII 范围）
-  const mod = 2 ** 32 // 大质数减少哈希冲突
-
+  const mod = 1e9 + 7 // 大质数减少哈希冲突
   // 计算 base^(m-1) mod mod，用于滚动哈希
   let power = 1
   for (let i = 0; i < m - 1; i++) {
@@ -76,7 +75,7 @@ function findRepeatedDnaSequences(s: string): string[] {
   const res: Set<number> = new Set()
 
   const base = 26 // 字符范围基数（ASCII 范围）
-  const mod = 2 ** 32 // 大质数减少哈希冲突
+  const mod = 1e9 + 7 // 大质数减少哈希冲突
 
   // 计算 base^(m-1) mod mod，用于滚动哈希
   let power = 1
@@ -113,4 +112,33 @@ function findRepeatedDnaSequences(s: string): string[] {
   }
 
   return Array.from(ans)
+}
+
+/**
+ * 字符串哈希 + 前缀和，可以在 O(1) 计算任意长度子串的哈希
+ * BigInt 类型，所以不会溢出不用取模
+ */
+
+class StringHash {
+  private static readonly P: bigint = 1313131n
+  public hash: bigint[]
+  public prime: bigint[]
+
+  constructor(str: string) {
+    const n = str.length
+    // 分配数组，长度为 n+1
+    this.hash = new Array(n + 1).fill(0n)
+    this.prime = new Array(n + 1).fill(0n)
+    this.prime[0] = 1n
+    // 构造前缀哈希数组与幂数组
+    for (let i = 0; i < n; i++) {
+      this.prime[i + 1] = this.prime[i] * StringHash.P
+      this.hash[i + 1] = this.hash[i] * StringHash.P + BigInt(str.charCodeAt(i))
+    }
+  }
+
+  // 返回区间 [i, j] 的哈希值
+  getSubStrHash(i: number, j: number): bigint {
+    return this.hash[j + 1] - this.hash[i] * this.prime[j - i + 1]
+  }
 }
