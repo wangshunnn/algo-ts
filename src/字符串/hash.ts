@@ -116,29 +116,27 @@ function findRepeatedDnaSequences(s: string): string[] {
 
 /**
  * 字符串哈希 + 前缀和，可以在 O(1) 计算任意长度子串的哈希
- * BigInt 类型，所以不会溢出不用取模
+ * - 使用 BigUint64Array 而不是 BigInt 类型是因为 BigUint64Array 溢出自动取模性能更好，
+ * - 而 BigInt 不会自动取模容易超时
+ * BigUint64Array：类型化数组表示平台字节序中的 64 位无符号整数数组
  */
-
 class StringHash {
-  private static readonly P: bigint = 1313131n
-  public hash: bigint[]
-  public prime: bigint[]
-
-  constructor(str: string) {
-    const n = str.length
-    // 分配数组，长度为 n+1
-    this.hash = new Array(n + 1).fill(0n)
-    this.prime = new Array(n + 1).fill(0n)
+  private P = 1313131n
+  private hash: BigUint64Array // BigUint64Array 溢出自动取模 mod = 2^64，此处数组：
+  public prime: BigUint64Array //mod = 2^64，此处数组：溢出自动取模
+  // 外面定义的数也要是BigUint64Array!
+  constructor(s: string) {
+    const n = s.length
+    this.hash = new BigUint64Array(n + 1)
+    this.prime = new BigUint64Array(n + 1)
     this.prime[0] = 1n
-    // 构造前缀哈希数组与幂数组
     for (let i = 0; i < n; i++) {
-      this.prime[i + 1] = this.prime[i] * StringHash.P
-      this.hash[i + 1] = this.hash[i] * StringHash.P + BigInt(str.charCodeAt(i))
+      this.prime[i + 1] = this.prime[i] * this.P
+      this.hash[i + 1] = this.hash[i] * this.P + BigInt.asUintN(64, BigInt(s.charCodeAt(i)))
     }
   }
-
-  // 返回区间 [i, j] 的哈希值
-  getSubStrHash(i: number, j: number): bigint {
-    return this.hash[j + 1] - this.hash[i] * this.prime[j - i + 1]
+  // 计算 s[l:r] 子串的哈希值，其中 l, r 表示下标，且 0 <= l <= r < n
+  getSubStrHash(l: number, r: number): bigint {
+    return BigInt.asUintN(64, this.hash[r + 1] - this.hash[l] * this.prime[r - l + 1])
   }
 }
