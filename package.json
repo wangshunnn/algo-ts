@@ -1,5 +1,5 @@
 {
-  "name": "my-leetcode",
+  "name": "algo-ts",
   "private": "true",
   "packageManager": "pnpm@9.15.0",
   "type": "module",
