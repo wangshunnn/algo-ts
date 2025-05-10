@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@datastructures-js/priority-queue':
-        specifier: 5.3.0
-        version: 5.3.0
+        specifier: 6.3.2
+        version: 6.3.2
       typescript:
         specifier: ^5.5.2
         version: 5.7.2
@@ -39,11 +39,11 @@ importers:
 
 packages:
 
-  '@datastructures-js/heap@3.2.0':
-    resolution: {integrity: sha512-FcU5ZAyb+VIOZz1HABsJUsbJi2ZyUDO7aoe97hq4d3tK3z8nMgwdxf5bO0gafR0ExFi18YTspntqHLzt4XOgnA==}
+  '@datastructures-js/heap@4.3.3':
+    resolution: {integrity: sha512-UcUu/DLh/aM4W3C8zZfwxxm6/6FIZUlm3mcAXuNOCa6Aj4iizNvNXQyb8DjZQH2jKSQbMRyNlngP6TPimuGjpQ==}
 
-  '@datastructures-js/priority-queue@5.3.0':
-    resolution: {integrity: sha512-0Dl0UooE9Uzz85qBP46HTjQHS5GN7NMNluN5/nMfxQAndG/1eNBJpBntLGT5QJarvMO3poLNBJzA3S4GPajp+w==}
+  '@datastructures-js/priority-queue@6.3.2':
+    resolution: {integrity: sha512-hPmWlbmYRegOkZsWJuOzZw+BYcrOJ9B5xwy8Sz/QtEtLUPHtJbX9OpPpCB+KQPgOVb1QonqFqiddVDud/i5afw==}
 
   '@eslint-community/eslint-utils@4.4.1':
     resolution: {integrity: sha512-s3O3waFUrMV8P/XaF/+ZTp1X9XBZW1a4B97ZnjQF2KYWaFD2A8KyFBsrsfSjEmjn3RGWAIuvlneuZm3CUK3jbA==}
@@ -696,11 +696,11 @@ packages:
 
 snapshots:
 
-  '@datastructures-js/heap@3.2.0': {}
+  '@datastructures-js/heap@4.3.3': {}
 
-  '@datastructures-js/priority-queue@5.3.0':
+  '@datastructures-js/priority-queue@6.3.2':
     dependencies:
-      '@datastructures-js/heap': 3.2.0
+      '@datastructures-js/heap': 4.3.3
 
   '@eslint-community/eslint-utils@4.4.1(eslint@9.18.0)':
     dependencies:

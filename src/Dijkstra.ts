@@ -10,20 +10,20 @@
 function dijkstra(g: number[][][], start: number): number[] {
   const distance: number[] = new Array(g.length).fill(Infinity)
   distance[start] = 0
-  const queue = new PriorityQueue({
-    compare: (a: { node: number; wight: number }, b: { node: number; wight: number }) => a.wight - b.wight,
-  })
-  queue.enqueue({ node: start, wight: 0 })
+  const queue = new PriorityQueue(
+    (a: { node: number; weight: number }, b: { node: number; weight: number }) => a.weight - b.weight,
+  )
+  queue.enqueue({ node: start, weight: 0 })
   while (!queue.isEmpty()) {
-    const { node, wight } = queue.dequeue()
-    if (wight > distance[node]) {
+    const { node, weight } = queue.dequeue()!
+    if (weight > distance[node]) {
       continue
     }
     for (const [v, w] of g[node]) {
-      const nextW = wight + w
+      const nextW = weight + w
       if (nextW < distance[v]) {
         distance[v] = nextW
-        queue.enqueue({ node: v, wight: nextW })
+        queue.enqueue({ node: v, weight: nextW })
       }
     }
   }
