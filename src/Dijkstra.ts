@@ -6,6 +6,8 @@
  *
  * 使用优先队列（最小堆）优化后，时间复杂度可达到 $O((V + E)log V)$，其中 $E$ 是边的数量。这是因为每个顶点最多入队出队一次，每个边最多触发一次优先队列的更新。
  *
+ * - [LC-3342.到达最后一个房间的最少时间 II](https://leetcode.cn/problems/find-minimum-time-to-reach-last-room-ii/description/)
+ *
  */
 function dijkstra(g: number[][][], start: number): number[] {
   const distance: number[] = new Array(g.length).fill(Infinity)
@@ -16,6 +18,7 @@ function dijkstra(g: number[][][], start: number): number[] {
   queue.enqueue({ node: start, weight: 0 })
   while (!queue.isEmpty()) {
     const { node, weight } = queue.dequeue()!
+    // ! 下面这个 continue 判断关键（否则对于一般图可能会超时）
     if (weight > distance[node]) {
       continue
     }
