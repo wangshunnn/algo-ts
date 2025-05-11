@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: test/*.ts
 alwaysApply: false
 ---
 # Algorithm Implementation Project Overview

@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: test/*.ts
 alwaysApply: false
 ---
 # Priority Queue Usage Standards
@@ -37,6 +37,7 @@ The project uses standardized priority queue implementations from `@datastructur
 - Do not create custom priority queue implementations
 - Use the appropriate queue type based on the use case
 - Document the choice of queue type in comments
+- **DO NOT manually import from '@datastructures-js/priority-queue'** - the types are globally available
 
 ### Example Usage
 ```typescript

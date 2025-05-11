@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Code Style Guidelines
+
+## Semicolons
+When generating or modifying code, please follow these guidelines regarding semicolons:
+
+1. Do not add semicolons at the end of lines unless absolutely necessary
+2. Only use semicolons when required by the language syntax or to prevent specific parsing issues
+3. This applies to all code generation and modifications
+
+### Examples
+
+✅ Preferred:
+```typescript
+const name = 'John'
+function greet() {
+    return 'Hello'
+}
+```
+
+❌ Avoid:
+```typescript
+const name = 'John';
+function greet() {
+    return 'Hello';
+};
+```
+
+### Exceptions
+Only add semicolons when:
+- Required by the language syntax
+- Needed to prevent specific parsing issues
+- Working with code that already follows a different style guide

@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: test/*.ts
 alwaysApply: false
 ---
 # Common Patterns and Utilities
