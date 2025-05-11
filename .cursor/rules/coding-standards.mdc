@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Coding Standards and Best Practices
+
+## TypeScript Standards
+- All files should use TypeScript with strict type checking enabled
+- Use meaningful type definitions and avoid using `any` type
+- Follow the TypeScript configuration defined in [tsconfig.json](mdc:tsconfig.json)
+
+## Code Style
+- Follow the formatting rules defined in [.prettierrc](mdc:.prettierrc)
+- Use ESLint rules as configured in [eslint.config.js](mdc:eslint.config.js)
+- Use meaningful variable and function names
+- Include JSDoc comments for public functions and classes
+
+## Algorithm Implementation Guidelines
+- Each algorithm implementation should be self-contained
+- Include time and space complexity analysis in comments
+- Provide example usage or test cases
+- Document any assumptions or constraints
+- Use the utility functions from [util.ts](mdc:src/util.ts) when appropriate
+
+## File Organization
+- Keep related algorithms in the same directory
+- Use descriptive file names that reflect the algorithm or data structure
+- Group similar algorithms together (e.g., all graph algorithms in one section)
+- Keep utility functions separate from algorithm implementations
+
+## Testing
+- Write test cases for each algorithm implementation
+- Include edge cases and boundary conditions
+- Document expected input/output formats
+- Use the test directory for all test files

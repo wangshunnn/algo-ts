@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Algorithm Implementation Project Overview
+
+This project contains TypeScript implementations of various algorithms and data structures. The codebase is organized as follows:
+
+## Core Data Structures
+- [最小堆.ts](mdc:src/最小堆.ts) - Implementation of a min heap data structure
+- [线段树.ts](mdc:src/线段树.ts) - Segment tree implementation
+- [有序集合TreeSet.ts](mdc:src/有序集合TreeSet.ts) - TreeSet implementation for ordered collections
+
+## Graph Algorithms
+- [Dijkstra.ts](mdc:src/Dijkstra.ts) - Dijkstra's shortest path algorithm
+- [Floyd.ts](mdc:src/Floyd.ts) - Floyd-Warshall algorithm for all-pairs shortest paths
+- [BFS.ts](mdc:src/BFS.ts) - Breadth-first search implementation
+- [图论.md](mdc:src/图论.md) - Graph theory documentation and notes
+
+## Search and Sort
+- [二分查找.ts](mdc:src/二分查找.ts) - Binary search implementation
+- [堆排序-前K大个数.ts](mdc:src/堆排序-前K大个数.ts) - Heap sort implementation for finding top K elements
+
+## Other Algorithms
+- [快速幂.ts](mdc:src/快速幂.ts) - Fast power algorithm
+- [最大公约数.ts](mdc:src/最大公约数.ts) - GCD implementation
+- [并查集.ts](mdc:src/并查集.ts) - Union-Find data structure
+- [单调栈.ts](mdc:src/单调栈.ts) - Monotonic stack implementation
+- [分组循环.ts](mdc:src/分组循环.ts) - Group iteration patterns
+
+## Utility
+- [util.ts](mdc:src/util.ts) - Common utility functions
+- [global.d.ts](mdc:global.d.ts) - Global TypeScript declarations
+
+## Project Configuration
+- [package.json](mdc:package.json) - Project dependencies and scripts
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript configuration
+- [eslint.config.js](mdc:eslint.config.js) - ESLint configuration
+- [.prettierrc](mdc:.prettierrc) - Prettier code formatting rules

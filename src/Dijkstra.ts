@@ -12,9 +12,7 @@
 function dijkstra(g: number[][][], start: number): number[] {
   const distance: number[] = new Array(g.length).fill(Infinity)
   distance[start] = 0
-  const queue = new PriorityQueue(
-    (a: { node: number; weight: number }, b: { node: number; weight: number }) => a.weight - b.weight,
-  )
+  const queue = new PriorityQueue<{ node: number; weight: number }>((a, b) => a.weight - b.weight)
   queue.enqueue({ node: start, weight: 0 })
   while (!queue.isEmpty()) {
     const { node, weight } = queue.dequeue()!

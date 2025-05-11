@@ -7,9 +7,9 @@
 
 // **** 构造初始化
 // * 最小堆
-const minPQ = new PriorityQueue((a: number, b: number) => a - b)
+const minPQ = new PriorityQueue<number>((a, b) => a - b)
 // * 最大堆
-const maxPQ = new PriorityQueue((a: number, b: number) => b - a)
+const maxPQ = new PriorityQueue<number>((a, b) => b - a)
 // *** 方法属性
 // * 入堆，O(log(n))，没有返回值，O(log(n))
 minPQ.enqueue(123)

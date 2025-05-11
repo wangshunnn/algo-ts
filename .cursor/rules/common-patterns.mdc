@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Common Patterns and Utilities
+
+## Data Structure Patterns
+- Use global priority queue types from [global.d.ts](mdc:global.d.ts):
+  - `MinPriorityQueue` for minimum heap operations
+  - `MaxPriorityQueue` for maximum heap operations
+  - `PriorityQueue` for custom priority implementations
+- Use [线段树.ts](mdc:src/线段树.ts) for range queries and updates
+- Use [有序集合TreeSet.ts](mdc:src/有序集合TreeSet.ts) for maintaining sorted collections
+
+## Graph Algorithm Patterns
+- Use [BFS.ts](mdc:src/BFS.ts) for level-order traversal and shortest path in unweighted graphs
+- Use [Dijkstra.ts](mdc:src/Dijkstra.ts) for shortest path in weighted graphs
+- Use [Floyd.ts](mdc:src/Floyd.ts) for all-pairs shortest paths
+- Use [并查集.ts](mdc:src/并查集.ts) for connected components and union-find operations
+
+## Search Patterns
+- Use [二分查找.ts](mdc:src/二分查找.ts) for binary search operations
+- Use [堆排序-前K大个数.ts](mdc:src/堆排序-前K大个数.ts) for finding top K elements
+
+## Common Utilities
+- Use [util.ts](mdc:src/util.ts) for common helper functions
+- Use [快速幂.ts](mdc:src/快速幂.ts) for efficient power calculations
+- Use [最大公约数.ts](mdc:src/最大公约数.ts) for GCD operations
+- Use [单调栈.ts](mdc:src/单调栈.ts) for next greater/smaller element problems
+- Use [分组循环.ts](mdc:src/分组循环.ts) for group iteration patterns
+
+## Type Definitions
+- Check [global.d.ts](mdc:global.d.ts) for common type definitions
+- Use TypeScript's built-in utility types when appropriate
+- Define custom types for complex data structures

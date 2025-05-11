@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Priority Queue Usage Standards
+
+## Global Priority Queue Types
+The project uses standardized priority queue implementations from `@datastructures-js/priority-queue` through global type declarations in [global.d.ts](mdc:global.d.ts):
+
+- `PriorityQueue`: Base priority queue implementation
+- `MinPriorityQueue`: Minimum priority queue (smallest element first)
+- `MaxPriorityQueue`: Maximum priority queue (largest element first)
+
+## Usage Guidelines
+
+### When to Use Each Type
+- Use `MinPriorityQueue` when you need to:
+  - Get the smallest element first
+  - Implement Dijkstra's algorithm
+  - Process elements in ascending order
+  - Find K smallest elements
+
+- Use `MaxPriorityQueue` when you need to:
+  - Get the largest element first
+  - Find K largest elements
+  - Process elements in descending order
+  - Implement heap sort for descending order
+
+- Use `PriorityQueue` when you need:
+  - Custom priority comparison
+  - Custom element types
+  - Specialized ordering requirements
+
+### Implementation Requirements
+- All priority queue implementations must use these global types
+- Do not create custom priority queue implementations
+- Use the appropriate queue type based on the use case
+- Document the choice of queue type in comments
+
+### Example Usage
+```typescript
+// For minimum priority queue (smallest first)
+const minQueue = new MinPriorityQueue<number>();
+minQueue.enqueue(5);
+minQueue.enqueue(2);
+minQueue.enqueue(8);
+console.log(minQueue.dequeue()); // 2
+
+// For maximum priority queue (largest first)
+const maxQueue = new MaxPriorityQueue<number>();
+maxQueue.enqueue(5);
+maxQueue.enqueue(2);
+maxQueue.enqueue(8);
+console.log(maxQueue.dequeue()); // 8
+
+// For custom priority queue
+const customQueue = new PriorityQueue<{value: number, priority: number}>(
+  (a, b) => a.priority - b.priority
+);
+```
+
+## Related Files
+- [global.d.ts](mdc:global.d.ts) - Global type declarations
+- [Dijkstra.ts](mdc:src/Dijkstra.ts) - Example usage in Dijkstra's algorithm
+- [堆排序-前K大个数.ts](mdc:src/堆排序-前K大个数.ts) - Example usage in heap sort
