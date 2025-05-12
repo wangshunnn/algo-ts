@@ -4,6 +4,8 @@
   "packageManager": "pnpm@10.10.0",
   "type": "module",
   "scripts": {
+    "check": "tsc --noEmit",
+    "watch": "tsc --watch",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier src --write",
@@ -21,6 +23,7 @@
     ],
     "*.ts": [
       "eslint --fix",
+      "pnpm check",
       "prettier --cache --write --parser=typescript"
     ]
   },
