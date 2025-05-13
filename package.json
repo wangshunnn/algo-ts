@@ -4,8 +4,8 @@
   "packageManager": "pnpm@10.10.0",
   "type": "module",
   "scripts": {
-    "check": "tsc --noEmit",
     "watch": "tsc --watch",
+    "check": "tsc --incremental --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier src --write",
@@ -14,7 +14,7 @@
     "postinstall": "simple-git-hooks"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm lint-staged && pnpm check"
   },
   "lint-staged": {
     "*.{js,json}": [
@@ -23,7 +23,6 @@
     ],
     "*.ts": [
       "eslint --fix",
-      "pnpm check",
       "prettier --cache --write --parser=typescript"
     ]
   },
