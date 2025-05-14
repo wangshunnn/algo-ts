@@ -1,7 +1,4 @@
 {
   "extends": "../tsconfig.base",
-  "compilerOptions": {
-    "composite": true
-  },
   "include": ["../global.d.ts", "*"]
 }
